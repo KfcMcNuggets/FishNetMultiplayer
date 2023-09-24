@@ -5,12 +5,11 @@ using FishNet.Transporting.Tugboat;
 
 public class MultiplayerConnector : MonoBehaviour
 {
+    [SerializeField]
     private Tugboat tugboat;
 
     void Start()
     {
-        tugboat = GetComponent<Tugboat>();
-
         tugboat.StartConnection(false);
     }
 }
