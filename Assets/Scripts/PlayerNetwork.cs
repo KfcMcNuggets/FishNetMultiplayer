@@ -1,15 +1,29 @@
+using Cinemachine;
 using FishNet.Object;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class PlayerNetwork : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    void Start() { }
+    [SerializeField]
+    private GameObject camKit;
 
-    // Update is called once per frame
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (!base.IsOwner)
+        {
+            gameObject.name = "RemotePlayer";
+            Destroy(camKit);
+        }
+        else
+        {
+            gameObject.name = "LocalPlayer";
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

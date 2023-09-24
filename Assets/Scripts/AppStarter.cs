@@ -30,8 +30,7 @@ public class AppStarter : MonoBehaviour
     private void StartClient()
     {
         Debug.Log("ImClinet");
-        ///Delete on release
 
-        SceneManager.LoadScene(GAME_SCENE);
+        SceneManager.LoadSceneAsync(GAME_SCENE);
     }
 }
