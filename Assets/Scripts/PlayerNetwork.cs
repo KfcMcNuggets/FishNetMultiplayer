@@ -17,6 +17,8 @@ public class PlayerNetwork : NetworkBehaviour
         {
             gameObject.name = "RemotePlayer";
             Destroy(camKit);
+            GetComponent<ThirdPersonController>().enabled = false;
+            //GetComponent<CharacterController>().enabled = false;
         }
         else
         {
