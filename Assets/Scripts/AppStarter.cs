@@ -26,11 +26,6 @@ public class AppStarter : MonoBehaviour
         tugboat.StartConnection(true);
     }
 
-    public virtual void OnRemoteConnection(NetworkConnection connection)
-    {
-        Debug.Log($"Player {connection.ClientId} connected!");
-    }
-
     private void StartClient()
     {
         Debug.Log("ImClient");
