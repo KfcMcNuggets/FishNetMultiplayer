@@ -2,13 +2,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using FishNet.Transporting.Tugboat;
+using FishNet.Connection;
 
 public class AppStarter : MonoBehaviour
 {
     [SerializeField]
     private GameObject netPrefab;
-
-    private const int GAME_SCENE = 1;
 
     private void Start()
     {
@@ -27,10 +26,15 @@ public class AppStarter : MonoBehaviour
         tugboat.StartConnection(true);
     }
 
+    public virtual void OnRemoteConnection(NetworkConnection connection)
+    {
+        Debug.Log($"Player {connection.ClientId} connected!");
+    }
+
     private void StartClient()
     {
         Debug.Log("ImClient");
 
-        SceneManager.LoadSceneAsync(GAME_SCENE);
+        SceneManager.LoadSceneAsync(SceneNums.SINGLEPLAYER_LOBBY);
     }
 }
