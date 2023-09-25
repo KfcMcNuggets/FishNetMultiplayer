@@ -10,19 +10,22 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField]
     private GameObject camKit;
 
+    private ThirdPersonController thc;
+
     public override void OnStartClient()
     {
+        thc = GetComponent<ThirdPersonController>();
         base.OnStartClient();
         if (!base.IsOwner)
         {
             gameObject.name = "RemotePlayer";
             Destroy(camKit);
-            GetComponent<ThirdPersonController>().enabled = false;
-            //GetComponent<CharacterController>().enabled = false;
+            thc.IsActive = false;
         }
         else
         {
             gameObject.name = "LocalPlayer";
+            thc.IsActive = true;
         }
     }
 

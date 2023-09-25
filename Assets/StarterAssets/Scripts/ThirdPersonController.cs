@@ -124,7 +124,7 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
-
+        public bool IsActive;
         private bool IsCurrentDeviceMouse
         {
             get
@@ -174,7 +174,10 @@ namespace StarterAssets
 
             JumpAndGravity();
             GroundedCheck();
-            Move();
+            if (IsActive)
+            {
+                Move();
+            }
         }
 
         private void LateUpdate()

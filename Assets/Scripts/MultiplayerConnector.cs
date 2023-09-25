@@ -10,9 +10,6 @@ public class MultiplayerConnector : MonoBehaviour
 
     void Start()
     {
-#if UNITY_EDITOR
-        tugboat.StartConnection(true);
-#endif
         tugboat.StartConnection(false);
     }
 }

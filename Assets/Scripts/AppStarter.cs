@@ -29,7 +29,7 @@ public class AppStarter : MonoBehaviour
 
     private void StartClient()
     {
-        Debug.Log("ImClinet");
+        Debug.Log("ImClient");
 
         SceneManager.LoadSceneAsync(GAME_SCENE);
     }
